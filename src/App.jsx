@@ -205,6 +205,7 @@ function App() {
             {score} out of {questions.length} correct - (
             {(score / questions.length) * 100}%)
           </h2>
+          {/* CREATE A COMPONENT THAT TAKES THE QUESTIONS ARRAY AND DISPLAYS THE RIGHT ONES IN GREEN AND THE WRONG ONES IN RED */}
           <button onClick={() => restartGame()}>Restart game</button>
         </div>
       ) : (
