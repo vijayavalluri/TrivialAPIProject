@@ -1,5 +1,19 @@
+:root {
+  background: linear-gradient(90deg, #cfecd0, #a0cea7, #9ec0db);
+
+}
+
 .App {
   text-align: center;
+}
+
+#heading {
+  font-size: 40px;
+  color: #d89e76;
+}
+
+#scoring {
+  color: #697e91;
 }
 
 .question-card {
@@ -12,10 +26,10 @@
   height: auto;
 
   /* Visual  */
-  background-color: gray;
+  background-color: #e5d1a6;
   padding: 16px;
   border-radius: 16px;
-  color: white;
+  color: #8d6b60;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
@@ -26,15 +40,15 @@ ul {
 
 li {
   margin-top: 8px;
-  background-color: darkgray;
+  background-color: #D7C0AE;
   padding: 16px;
-  border: 3px solid white;
+  border: 3px solid #967E76;
   border-radius: 20px;
   font-size: 20px;
 }
 
 .question-text {
-  color: darkblue;
+  color: #697e91;
   font-size: 24px;
 }
 
@@ -51,16 +65,16 @@ li {
   margin-top: 64px;
 
   /* Visual  */
-  background-color: gray;
+  background-color: #e5d1a6;
   padding: 16px;
   border-radius: 16px;
-  color: white;
+  color: #967E76;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
 button {
-  background-color: red;
+  background-color: rgb(75, 133, 181);
   /* Green */
   border: none;
   color: white;

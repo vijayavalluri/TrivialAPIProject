@@ -139,28 +139,28 @@ function App() {
       userAnswer: '',
     },])
 
-  useEffect(()=>{
+  useEffect(() => {
     getQuestions()
   }, [])
-  
+
   const getQuestions = () => {
     axios.get('https://wd40-trivia.onrender.com/api/questions')
-    .then(res=> {
-      console.log(res.data)
-      setQuestions(res.data)
-    })
-    .catch(error=> console.log(error))
+      .then(res => {
+        console.log(res.data)
+        setQuestions(res.data)
+      })
+      .catch(error => console.log(error))
   }
 
   // Helper Functions
 
   /* A possible answer was clicked */
   const optionClicked = (obj, text) => {
-    // get all the ones in the arra
+    // get all the ones in the array
     let payload = questions.filter(element => element.id != obj.id)
-    payload = [...payload, {...obj, userAnswer: text}]
+    payload = [...payload, { ...obj, userAnswer: text }]
 
-    // change the questions array userAnswet in the corresponding object
+    // change the questions array userAnswer in the corresponding object
     setQuestions(payload)
 
     // Increment the score
@@ -185,54 +185,58 @@ function App() {
 
   return (
     <>
-    {
-      !questions ?
-    <p>Loading</p>
-    :
-    <div className="App">
-      {/* 1. Header  */}
-      <h1>Quiz</h1>
+      {
+        !questions ?
+          <p>Loading</p>
+          :
+          <div className="App">
+            {/* 1. Header  */}
+            <h1 id="heading">Welcome to your daily Quiz</h1>
 
-      {/* 2. Current Score  */}
-      <h2>Score: {score}</h2>
+            {/* 2. Current Score  */}
+            <h2 id="scoring">Score: {score}</h2>
 
-      {/* 3. Show results or show the question game  */}
-      {showResults ? (
-        /* 4. Final Results */
-        <div className="final-results">
-          <h1>Final Results</h1>
-          <h2>
-            {score} out of {questions.length} correct - (
-            {(score / questions.length) * 100}%)
-          </h2>
-          {/* CREATE A COMPONENT THAT TAKES THE QUESTIONS ARRAY AND DISPLAYS THE RIGHT ONES IN GREEN AND THE WRONG ONES IN RED */}
-          <button onClick={() => restartGame()}>Restart game</button>
-        </div>
-      ) : (
-        /* 5. Question Card  */
-        <div className="question-card">
-          {/* Current Question  */}
-          <h2>
-            Question: {currentQuestion + 1} out of {questions.length}
-          </h2>
-          <h3 className="question-text">{questions[currentQuestion].question}</h3>
+            {/* 3. Show results or show the question game  */}
+            {showResults ? (
+              /* 4. Final Results */
+              <div className="final-results">
+                <h1>Final Results</h1>
+                <h2>
+                  {score} out of {questions.length} correct - (
+                  {(score / questions.length) * 100}%)
+                </h2>
 
-          {/* List of possible answers  */}
-          <ul>
-            {questions[currentQuestion].answers.map((option) => {
-              return (
-                <li
-                  // key={option.id}
-                  onClick={() => optionClicked(questions[currentQuestion], option)}
-                >
-                  {option}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
-    </div>}
+                {/* CREATE A COMPONENT THAT TAKES THE QUESTIONS ARRAY AND DISPLAYS THE RIGHT ONES IN GREEN AND THE WRONG ONES IN RED */}
+
+
+
+                <button onClick={() => restartGame()}>Restart game</button>
+              </div>
+            ) : (
+              /* 5. Question Card  */
+              <div className="question-card">
+                {/* Current Question  */}
+                <h2>
+                  Question: {currentQuestion + 1} out of {questions.length}
+                </h2>
+                <h3 className="question-text">{questions[currentQuestion].question}</h3>
+
+                {/* List of possible answers  */}
+                <ul>
+                  {questions[currentQuestion].answers.map((option) => {
+                    return (
+                      <li
+                        // key={option.id}
+                        onClick={() => optionClicked(questions[currentQuestion], option)}
+                      >
+                        {option}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+          </div>}
     </>
   );
 }
