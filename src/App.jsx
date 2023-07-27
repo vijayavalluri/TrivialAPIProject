@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from 'react-dom';
+import ClickWithSound from './ClickWithSound';
 import "./App.css";
 import axios from 'axios'
 // import questions from './components/Questions'
@@ -84,6 +86,8 @@ import axios from 'axios'
 
 
 // ECA'S VERSION
+
+
 function App() {
   // Properties
   const [showResults, setShowResults] = useState(false);
@@ -183,6 +187,10 @@ function App() {
     getQuestions()
   };
 
+ 
+//<audio id="sound" src={optionClick}> </audio>
+
+
   return (
     <>
       {
@@ -192,6 +200,8 @@ function App() {
           <div className="App">
             {/* 1. Header  */}
             <h1 id="heading">Welcome to your daily Quiz</h1>
+
+    
 
             {/* 2. Current Score  */}
             <h2 id="scoring">Score: {score}</h2>
@@ -215,6 +225,7 @@ function App() {
             ) : (
               /* 5. Question Card  */
               <div className="question-card">
+                      <ClickWithSound />
                 {/* Current Question  */}
                 <h2>
                   Question: {currentQuestion + 1} out of {questions.length}
@@ -227,16 +238,18 @@ function App() {
                     return (
                       <li
                         // key={option.id}
-                        onClick={() => optionClicked(questions[currentQuestion], option)}
+                        onClick={() =>{optionClicked(questions[currentQuestion], option)
+                       }}
                       >
-                        {option}
+                        {option} 
                       </li>
                     );
                   })}
                 </ul>
               </div>
             )}
-          </div>}
+          </div>
+          }
     </>
   );
 }
