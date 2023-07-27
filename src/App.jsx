@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
-import ClickWithSound from './ClickWithSound';
+import ClickableWithSound from './ClickableWithSound';
 import "./App.css";
 import axios from 'axios'
 // import questions from './components/Questions'
@@ -225,7 +225,7 @@ function App() {
             ) : (
               /* 5. Question Card  */
               <div className="question-card">
-                      <ClickWithSound />
+                      <ClickableWithSound />
                 {/* Current Question  */}
                 <h2>
                   Question: {currentQuestion + 1} out of {questions.length}
