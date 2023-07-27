@@ -58,7 +58,8 @@ function App() {
       correctAnswer: 'Oscar',
       answers: ['Tony', 'Oscar', 'Grammy', 'Emmy'],
       userAnswer: '',
-    },])
+    },
+  ])
 
   useEffect(() => {
     getQuestions()
@@ -80,6 +81,7 @@ function App() {
     // get all the ones in the array
     let payload = questions.filter(element => element.id != obj.id)
     payload = [...payload, { ...obj, userAnswer: text }]
+    console.log(payload);
 
     // change the questions array userAnswer in the corresponding object
     setQuestions(payload)
@@ -134,6 +136,15 @@ function App() {
                 </h2>
 
                 {/* CREATE A COMPONENT THAT TAKES THE QUESTIONS ARRAY AND DISPLAYS THE RIGHT ONES IN GREEN AND THE WRONG ONES IN RED */}
+                {questions.map(ele => {
+                  return (
+                    <div className={ele.userAnswer == ele.correctAnswer ? "correct" : "incorrect"}>
+                      <h4>{ele.question}</h4>
+                      <p>You chose: {ele.userAnswer}</p>
+                      <p>The correct answer was: {ele.correctAnswer}</p>
+                    </div>
+                  )
+                })}
 
 
 
