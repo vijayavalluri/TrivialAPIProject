@@ -236,7 +236,7 @@ function App() {
                 <ul>
                   {questions[currentQuestion].answers.map((option) => {
                     return (
-                      <li
+                      <li class='optionsClicked'
                         // key={option.id}
                         onClick={() =>{optionClicked(questions[currentQuestion], option)
                        }}
