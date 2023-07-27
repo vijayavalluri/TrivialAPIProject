@@ -138,15 +138,13 @@ function App() {
                 {/* CREATE A COMPONENT THAT TAKES THE QUESTIONS ARRAY AND DISPLAYS THE RIGHT ONES IN GREEN AND THE WRONG ONES IN RED */}
                 {questions.map(ele => {
                   return (
-                    <div className={ele.userAnswer == ele.correctAnswer ? "correct" : "incorrect"}>
+                    <div className={ele.userAnswer == ele.correctAnswer ? "final-score correct" : "final-score incorrect"}>
                       <h4>{ele.question}</h4>
                       <p>You chose: {ele.userAnswer}</p>
                       <p>The correct answer was: {ele.correctAnswer}</p>
                     </div>
                   )
                 })}
-
-
 
                 <button onClick={() => restartGame()}>Restart game</button>
               </div>
